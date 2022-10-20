@@ -1,9 +1,28 @@
 <h1>Tutorial app</h1>
 
-<div class="play-container">
+<div class="play-container" 
+[class.active]="clickCounter > 4"
+[ngClass]="setClasses()">
     <p>One way data binding <span (click)="countClick()"> {{ clickCounter }}</span></p>
+</div>
+
+<div class="play-container" [ngStyle]="{
+    'background-color': textLine !== '' ? 'lightgreen' : 'lightgray',
+    'border': textLine !== '' ? '1px solid gray' : '1px solid lightgray'
+}">
     <p>
         <input type="text" [(ngModel)]="textLine"><br>
         <strong>Two-way binding: </strong> {{ textLine }}
     </p>
+</div>
+
+<div class="play-container" [style.background-color]="clickCounter > 3 ? 'lightyellow' : 'lightblue'">
+    <ng-template [ngIf]="clickCounter > 4" [ngIfElse]="lessThan4">
+        <p>The click counter <strong>is greater</strong> than 4.</p>
+    </ng-template>
+
+    <ng-template #lessThan4>
+        <p>The click counter <strong>not greater</strong> than 4.</p>
+    </ng-template>
+
 </div>
