@@ -8,10 +8,17 @@ import { HttpService } from '../http.service';
 })
 export class ListComponent implements OnInit {
 
-  constructor() { }
+  brews: any[] = [];
+
   constructor(private http: HttpService) { }
 
   ngOnInit(): void {
+    this.http.getBreweries().subscribe( data => {
+      this.brews = data;  
+      console.log(this.brews);
+        
+      }
+    )
   }
 
 }
