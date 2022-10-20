@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   }
 
   clickCounter: number = 0;
+  textLine: string = "";
 
   countClick() {
     this.clickCounter++;

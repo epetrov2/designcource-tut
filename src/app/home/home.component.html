@@ -2,4 +2,8 @@
 
 <div class="play-container">
     <p>One way data binding <span (click)="countClick()"> {{ clickCounter }}</span></p>
+    <p>
+        <input type="text" [(ngModel)]="textLine"><br>
+        <strong>Two-way binding: </strong> {{ textLine }}
+    </p>
 </div>
